@@ -24,4 +24,14 @@ defmodule PingPong.User do
     |> validate_required([:name])
     |> validate_length(:name, min: 1, max: 30)
   end
+
+  def change_user(%User{} = user) do
+    User.changeset(user, %{})
+  end
+
+  def create_user(attrs \\ %{}) do
+    %User{}
+    |> User.changeset(attrs)
+    |> Repo.insert()
+  end
 end
