@@ -18,9 +18,8 @@ defmodule PingPongWeb.Router do
 
     get "/user/:id", UserController, :show
     get "/home", HomeController, :load
-    get "/users", UsersController, :show
     # move the users listing to here out of rht ehomepage
-    resources "/users", UsersController, only: [:index, :show, :new, :create]
+    resources "/users", UserController, only: [:index, :show, :new, :create]
     get "/", PageController, :index
   end
 

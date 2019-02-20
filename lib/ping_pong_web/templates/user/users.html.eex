@@ -1,0 +1,12 @@
+<h1>Players:</h1>
+<table>
+  <%= for user <- @users do %>
+  <tr>
+    <td><b><%= user.name%></b></td>
+    <td>
+      <%= link "View", to: Routes.user_path(@conn, :show, user.id) %>
+    </td>
+  </tr>
+
+  <% end %>
+</table>
