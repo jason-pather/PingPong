@@ -16,7 +16,6 @@ defmodule PingPongWeb.Router do
   scope "/", PingPongWeb do
     pipe_through :browser
 
-    get "/user/:id", UserController, :show
     get "/home", HomeController, :load
     # move the users listing to here out of rht ehomepage
     resources "/users", UserController, only: [:index, :show, :new, :create]
