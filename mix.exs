@@ -44,7 +44,6 @@ defmodule PingPong.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.4"},
-      {:floki, "~> 0.20.0"},
       {:poison, "~> 3.1"}
     ]
   end
