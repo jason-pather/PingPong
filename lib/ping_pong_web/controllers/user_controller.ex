@@ -15,7 +15,7 @@ defmodule PingPongWeb.UserController do
   end
 
   def new(conn, _params) do
-    changeset = User.change_user(%User{})
+    changeset = User.changeset(%User{}, %{})
     render(conn, "new.html", changeset: changeset)
   end
 
