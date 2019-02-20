@@ -14,6 +14,10 @@ defmodule PingPong.User do
     Repo.get(User, id)
   end
 
+  def list_users() do
+    Repo.all(User)
+  end
+
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:name])
