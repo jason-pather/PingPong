@@ -1,12 +1,18 @@
-defmodule PingPong.Matches do
+defmodule PingPong.Match do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias PingPong.Match
+  alias PingPong.UserMatch
+  alias PingPong.Repo
+
   schema "matches" do
-    field :winning_score, :integer
-    field :losing_score, :integer
-    field :winning_user_id, :integer
-    field :losing_user_id, :integer
+    field :match_date, :naive_datetime
+    has_many :users_matches, UserMatch
     timestamps()
+  end
+
+  def list_matches() do
+    Repo.all(Match)
   end
 end

@@ -2,13 +2,14 @@ defmodule PingPong.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias PingPong.{Repo, User, UserMatch, Match}
+
   schema "users" do
     field :name, :string
+    has_many :users_matches, UserMatch
+    has_many :matches, through: [:users_matches, :match]
     timestamps()
   end
-
-  alias PingPong.Repo
-  alias PingPong.User
 
   def get_user(id) do
     Repo.get(User, id)
