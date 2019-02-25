@@ -4,7 +4,10 @@ defmodule PingPongWeb.UserController do
   alias PingPong.{User, Match}
 
   def show(conn, %{"id" => id}) do
-    matches = Match.list_matches_for_user(String.to_integer(id))
+    matches =
+      String.to_integer(id)
+      |> Match.list_matches_for_user()
+
     user = User.get_user(id)
     render(conn, "user.html", matches: matches, name: user.name)
   end

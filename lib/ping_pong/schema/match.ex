@@ -29,19 +29,19 @@ defmodule PingPong.Match do
     |> Enum.map(fn match ->
       %{
         date: match.match_date,
-        home_user:
-          extract_user_details(Enum.find(match.users_matches, fn um -> um.user_id == user_id end)),
-        away_user:
-          extract_user_details(Enum.find(match.users_matches, fn um -> um.user_id != user_id end))
+        home_user: extract_user_details(match, fn um -> um.user_id == user_id end),
+        away_user: extract_user_details(match, fn um -> um.user_id != user_id end)
       }
     end)
   end
 
-  defp extract_user_details(user_match) do
+  defp extract_user_details(user_match, func) do
+    um = Enum.find(user_match.users_matches, func)
+
     %{
-      score: user_match.score,
-      name: user_match.user.name,
-      user_id: user_match.user_id
+      score: um.score,
+      name: um.user.name,
+      user_id: um.user_id
     }
   end
 end
