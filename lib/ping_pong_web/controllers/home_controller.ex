@@ -12,7 +12,6 @@ defmodule PingPongWeb.HomeController do
     case HTTPoison.get(@fact_url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         body
-        |> IO.inspect
         |> Poison.decode!()
         |> Map.get("text")
 

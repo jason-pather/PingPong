@@ -1,6 +1,2 @@
 <h1>Matches:</h1>
-<table>
-  <%= for match <- @matches do %>
-
-  <% end %>
 </table>

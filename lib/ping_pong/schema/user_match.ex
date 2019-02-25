@@ -24,8 +24,4 @@ defmodule PingPong.UserMatch do
     belongs_to :match, Match
     timestamps()
   end
-
-  def get_user_match_with_user_name(match_id) do
-    Repo.one()
-  end
 end
