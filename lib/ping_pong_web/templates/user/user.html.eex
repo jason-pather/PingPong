@@ -1,1 +1,15 @@
 <h1><%=@name%> user homepage!</h1>
+
+<h2>Recent matches:</h2>
+<table>
+  <%= for match <- @matches do %>
+  <tr>
+    <td><%=match.date%></td>
+    <td><%= match.home_user.name%></td>
+    <td><%= match.home_user.score%></td>
+    <td> : </td>
+    <td><%= match.away_user.score %></td>
+    <td><%= link match.away_user.name, to: Routes.user_path(@conn, :show, match.away_user.user_id) %></td>
+  </tr>
+  <% end %>
+</table>
