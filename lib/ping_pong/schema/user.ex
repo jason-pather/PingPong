@@ -1,6 +1,7 @@
 defmodule PingPong.User do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
 
   alias PingPong.{Repo, User, UserMatch, Match}
 

@@ -1,11 +1,12 @@
 defmodule PingPongWeb.UserController do
   use PingPongWeb, :controller
 
-  alias PingPong.User
+  alias PingPong.{User, Match}
 
   def show(conn, %{"id" => id}) do
-    user = PingPong.User.get_user(id)
-    render(conn, "user.html", name: user.name)
+    matches = Match.list_matches_for_user(String.to_integer(id))
+    user = User.get_user(id)
+    render(conn, "user.html", matches: matches, name: user.name)
   end
 
   def index(conn, _params) do

@@ -7,4 +7,9 @@ defmodule PingPongWeb.MatchController do
     matches = Match.list_matches()
     render(conn, "matches.html", matches)
   end
+
+  def new(conn, _params) do
+    changeset = Match.changeset(%Match{}, %{})
+    render(conn, "new.html", changeset: changeset)
+  end
 end
