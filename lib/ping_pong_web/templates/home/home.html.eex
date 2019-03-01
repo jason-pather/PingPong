@@ -2,3 +2,6 @@
 
 <h2>Fun fact!<h2>
 <h3>"<%= @fact_string %>"<h3>
+<%= button("Matches", to: Routes.match_path(@conn, :index), method: :get) %>
+<h3></h3>
+<%= button("Users", to: Routes.match_path(@conn, :index), method: :get) %>
