@@ -1,0 +1,45 @@
+<h1>Create new match:</h1>
+<%= form_for @changeset, Routes.match_path(@conn, :create), fn f -> %>
+
+<%= if @changeset.action do %>
+<div class="alert alert-danger">
+    <p>Oops, something went wrong! Please check the errors below.</p>
+</div>
+<% end %>
+
+<div>
+    <table>
+        <tr>
+            <td>
+                <input id="match_match_date" name="match[match_date]" type="date"> </td>
+            <td>
+                <select id="match_users_matches_user_id" name="match[users_matches][0][user_id]">
+                    <%= for user <- @users do %>
+                    <option value="<%= user.id %>">
+                        <%= user.name %>
+                    </option>
+                    <% end %>
+                </select> </td>
+            <td>
+                <input id="match_users_matches_score" name="match[users_matches][0][score]" placeholder="Score 1" type="text">
+            </td>
+            <td>
+                vs
+            </td>
+            <td>
+                <input id="match_users_matches_score" name="match[users_matches][1][score]" placeholder="Score 2" type="text">
+            </td>
+            <td>
+                <select id="match_users_matches_user_id" name="match[users_matches][1][user_id]">
+                    <%= for user <- @users do %>
+                    <option value="<%= user.id %>">
+                        <%= user.name %>
+                    </option>
+                    <% end %>
+                </select> </td>
+            <td>
+
+    </table>
+</div>
+<%= submit "Create Match" %>
+<% end %>

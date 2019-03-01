@@ -24,4 +24,11 @@ defmodule PingPong.UserMatch do
     belongs_to :match, Match
     timestamps()
   end
+
+  def changeset(match, attrs) do
+    match
+    |> cast(attrs, [:score, :user_id])
+    |> validate_required([:score])
+    |> validate_required([:user_id])
+  end
 end

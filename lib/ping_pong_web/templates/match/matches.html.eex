@@ -1,2 +1,24 @@
 <h1>Matches:</h1>
+<table>
+  <%= for match <- @matches do %>
+    <tr>
+        <td>
+            <%=match.date%>
+        </td>
+        <td>
+            <%= link match.home_user.name, to: Routes.user_path(@conn, :show, match.home_user.user_id) %>
+        </td>
+        <td>
+            <%= match.home_user.score%>
+        </td>
+        <td> : </td>
+        <td>
+            <%= match.away_user.score %>
+        </td>
+        <td>
+            <%= link match.away_user.name, to: Routes.user_path(@conn, :show, match.away_user.user_id) %>
+        </td>
+    </tr>
+    <% end %>
 </table>
+<%= button("Create Match", to: Routes.match_path(@conn, :new), method: :get) %>
